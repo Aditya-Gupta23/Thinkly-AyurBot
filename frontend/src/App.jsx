@@ -3,8 +3,7 @@ import axios from "axios";
 import LeafImg from "./assets/LeafImg.png";
 import ChatWindow from "./components/ChatWindow";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -48,7 +47,7 @@ function App() {
         {
           role: "bot",
           content:
-            "I couldn't reach the backend right now. Please make sure the server is running on port 5001 and try again.",
+            "I couldn't reach the API right now. If you're running locally, use the Vercel serverless route or set VITE_API_BASE_URL.",
         },
       ]);
     } finally {
