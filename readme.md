@@ -1,265 +1,70 @@
-# 🌿 Thinkly AyurBot — AI Wellness Chat Assistant
+# Thinkly AyurBot — AI Wellness Assistant
 
-An AI-powered chatbot designed to provide **Ayurvedic guidance on health, lifestyle, diet, and yoga**.
-Built as a focused, domain-specific assistant with a premium, calming UI experience.
+## Overview
 
----
+Thinkly AyurBot is a domain-specific AI chatbot designed to provide guidance on Ayurveda, health, diet, and lifestyle.
 
-## 🚀 Live Demo
-
-🔗 Frontend: *[Add your Vercel link here]*
-🔗 Backend API: *[Add your Render link here]*
+The goal of this project was to build a focused AI-powered product rather than a generic chatbot, with controlled outputs and a clean user experience.
 
 ---
 
-## 🎯 Project Overview
+## Why this project
 
-This project was built as part of a frontend-focused assignment to demonstrate:
+Most AI chat applications are general-purpose and often provide inconsistent or irrelevant responses in specific domains.
 
-* Product thinking
-* UI/UX design
-* AI integration
-* Ability to guide AI outputs effectively
-
-Unlike generic chat apps, **AyurBot is purpose-built** — it behaves like a **wellness assistant specialized in Ayurveda**, not a general chatbot.
+This project explores how prompt engineering and UI design can be used to create a specialized assistant that delivers structured and relevant information in the wellness domain.
 
 ---
 
-## ✨ Key Features
+## What I built
 
-### 🧠 AI-Powered Responses
-
-* Integrated with **Google Gemini API**
-* Structured, concise, and domain-focused answers
-* Smart prompt engineering to control AI behavior
-
----
-
-### 🎛 Mode-Based Intelligence
-
-Users can switch between specialized modes:
-
-* 🌿 General Ayurvedic
-* 🥗 Diet Planner
-* 🩺 Disease Specialist
-* 🧘 Yoga Teacher
-
-Each mode changes:
-
-* Tone
-* Knowledge scope
-* Response structure
+- A React-based chat interface with a clean and responsive UI  
+- A serverless backend using Vercel API routes  
+- Integration with Google Gemini API for generating responses  
+- Mode-based interaction (General, Diet, Disease, Yoga) to control AI behavior  
+- Domain restriction to ensure responses stay within Ayurveda and wellness  
+- Error handling for API failures and rate limits  
 
 ---
 
-### 🛑 Domain Restriction (Important)
+## Architecture
 
-The chatbot **only answers health & Ayurveda-related queries**.
+- Frontend: React (Vite)  
+- Backend: Vercel Serverless Functions  
+- AI: Google Gemini API  
 
-For unrelated questions:
-
-> “I'm designed to help with Ayurveda, health, and wellness…”
-
-👉 Prevents generic AI behavior and improves product focus.
-
----
-
-### 🎨 Premium UI/UX
-
-* Calm, Ayurvedic color palette
-* Soft gradients and glassmorphism
-* Clean chat bubbles and typography
-* Responsive design
+Flow:  
+User input → API route (`/api/chat`) → Gemini → Parsed response → UI
 
 ---
 
-### 🎤 Voice Input
+## Key considerations
 
-* Speech-to-text support using Web Speech API
-* Continuous listening mode
-* Seamless integration with chat input
-
----
-
-### 🔊 Text-to-Speech
-
-* AI responses can be read aloud
-* Enhances accessibility and UX
+- Avoided blindly trusting AI responses by validating and parsing outputs  
+- Handled deployment issues to ensure frontend and backend work together  
+- Implemented graceful error handling for API limits and failures  
+- Designed the UI to reflect a calm, wellness-oriented experience  
 
 ---
 
-### 📋 Message Actions
+## Live Demo
 
-* 👍 / 👎 feedback
-* 📋 Copy response
-* 🔊 Listen to response
+https://thinkly-ayur-bot.vercel.app
 
 ---
 
-### ⚡ Real-Time Chat Experience
+## Loom Walkthrough
 
-* Auto-scroll
-* Loading states
-* Error handling (backend unreachable, etc.)
+https://drive.google.com/file/d/11Mx1C2E0oUSVqPq0iXvuOxU3y2gw64Yk/view
 
 ---
 
-## 🏗 Tech Stack
+## Author
 
-### Frontend
-
-* React (Vite)
-* Tailwind CSS
-* React Markdown (for formatting responses)
-* Lucide Icons
-
-### Backend
-
-* Node.js
-* Express.js
-* Google Gemini API
-
-### Deployment
-
-* Frontend → Vercel
-* Backend → Render
+Aditya Gupta
 
 ---
 
-## 📂 Project Structure
+## Note
 
-```
-ThinklyAyurBot/
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── assets/
-│   │   └── App.jsx
-│   ├── public/
-│   └── index.html
-│
-├── backend/
-│   ├── routes/
-│   ├── utils/
-│   └── server.js
-│
-└── .gitignore
-```
-
----
-
-## ⚙️ Environment Variables
-
-### Backend (`backend/.env`)
-
-```
-GEMINI_API_KEY=your_api_key_here
-PORT=5001
-```
-
----
-
-### Frontend (`frontend/.env`)
-
-```
-VITE_API_BASE_URL=http://localhost:5001
-```
-
----
-
-## 🧪 Run Locally
-
-### 1. Clone repo
-
-```bash
-git clone https://github.com/YOUR_USERNAME/ThinklyAyurBot.git
-cd ThinklyAyurBot
-```
-
----
-
-### 2. Setup Backend
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
----
-
-### 3. Setup Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
----
-
-## 🧠 Prompt Engineering Approach
-
-The chatbot behavior is controlled using:
-
-* Mode-specific system prompts
-* Strict domain rules
-* Structured markdown responses
-
-Example:
-
-* Prevents answering irrelevant queries
-* Forces concise and formatted output
-* Simulates domain expertise
-
----
-
-## 🎥 Loom Walkthrough
-
-🔗 *[Add Loom video link here]*
-
-Includes:
-
-* How the app works
-* How AI is used
-* How prompts were designed
-* How edge cases are handled
-
----
-
-## 🛡 Security Practices
-
-* `.env` files are ignored via `.gitignore`
-* API keys are never exposed
-* `.env.example` provided for setup
-
----
-
-## 💡 Future Improvements
-
-* Chat history persistence (MongoDB)
-* User authentication
-* Personalized health tracking
-* More advanced AI context memory
-* Multi-language support
-
----
-
-## 🙌 Author
-
-**Aditya Gupta**
-Frontend Developer | AI Enthusiast
-
----
-
-## ⭐ Final Note
-
-This project focuses on **building a product, not just a chatbot**:
-
-* Controlled AI behavior
-* Thoughtful UI/UX
-* Clear user experience
-* Real-world usability
-
----
+This project focuses on demonstrating product thinking, AI integration, and the ability to guide and validate AI-generated outputs in a real-world scenario.
