@@ -32,10 +32,21 @@ export default async function handler(req, res) {
     );
 
     const data = await response.json();
-
+    console.log("Gemini FULL response:", JSON.stringify(data, null, 2));
     const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "I'm here to help, but something went wrong.";
+    data?.candidates?.[0]?.content?.parts
+      ?.map((p) => p.text)
+      .join("") ||
+    data?.candidates?.[0]?.content?.text ||
+    (data?.error && data.error.message) ||
+    "I'm here to help, but something went wrong.";
+
+    if (data.error) {
+      console.error("Gemini API Error:", data.error);
+      return res.status(500).json({
+        reply: "AI service error: " + data.error.message,
+      });
+    }
 
     return res.status(200).json({ reply });
 
